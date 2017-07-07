@@ -21,11 +21,6 @@ export declare class DataTableBodyCellComponent implements OnDestroy {
     activateFn: any;
     constructor(element: ElementRef);
     ngOnDestroy(): void;
-    onFocus(): void;
-    onBlur(): void;
-    onClick(event: MouseEvent): void;
-    onDblClick(event: MouseEvent): void;
-    onKeyDown(event: KeyboardEvent): void;
     onCheckboxChange(event: any): void;
     calcSortDir(sorts: any[]): any;
 }

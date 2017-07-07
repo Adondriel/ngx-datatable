@@ -133,67 +133,6 @@ export class DataTableBodyCellComponent implements OnDestroy {
     }
   }
 
-  @HostListener('focus')
-  onFocus(): void {
-    this.isFocused = true;
-  }
-
-  @HostListener('blur')
-  onBlur(): void {
-    this.isFocused = false;
-  }
-
-  @HostListener('click', ['$event'])
-  onClick(event: MouseEvent): void {
-    this.activate.emit({
-      type: 'click',
-      event,
-      row: this.row,
-      column: this.column,
-      value: this.value,
-      cellElement: this.element
-    });
-  }
-
-  @HostListener('dblclick', ['$event'])
-  onDblClick(event: MouseEvent): void {
-    this.activate.emit({
-      type: 'dblclick',
-      event,
-      row: this.row,
-      column: this.column,
-      value: this.value,
-      cellElement: this.element
-    });
-  }
-
-  @HostListener('keydown', ['$event'])
-  onKeyDown(event: KeyboardEvent): void {
-    const keyCode = event.keyCode;
-    const isTargetCell = event.target === this.element;
-
-    const isAction =
-      keyCode === Keys.return ||
-      keyCode === Keys.down ||
-      keyCode === Keys.up ||
-      keyCode === Keys.left ||
-      keyCode === Keys.right;
-
-    if(isAction && isTargetCell) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      this.activate.emit({
-        type: 'keydown',
-        event,
-        row: this.row,
-        column: this.column,
-        value: this.value,
-        cellElement: this.element
-      });
-    }
-  }
-
   onCheckboxChange(event: any): void {
     this.activate.emit({
       type: 'checkbox',

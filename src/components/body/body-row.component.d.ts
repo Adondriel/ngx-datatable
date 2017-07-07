@@ -1,4 +1,4 @@
-import { ElementRef, EventEmitter } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { ScrollbarHelper } from '../../services';
 export declare class DataTableBodyRowComponent {
     private scrollbarHelper;
@@ -11,7 +11,6 @@ export declare class DataTableBodyRowComponent {
     readonly cssClass: string;
     rowHeight: number;
     readonly columnsTotalWidths: string;
-    activate: EventEmitter<any>;
     element: any;
     columnGroupWidths: any;
     columnsByPin: any;
@@ -23,7 +22,5 @@ export declare class DataTableBodyRowComponent {
     stylesByGroup(group: string): {
         width: string;
     };
-    onActivate(event: any, index: number): void;
-    onKeyDown(event: KeyboardEvent): void;
     recalculateColumns(val?: any[]): void;
 }
